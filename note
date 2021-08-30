@@ -1,0 +1,35 @@
+1. create redis deployment and service
+    $ kubectl create -f redis-deploy.yaml
+    $kubectl create -f redis-service.yaml
+
+2. create postgres deployment and service
+    $ kubectl create -f postgres-deploy.yaml 
+    $ kubectl create -f postgres-service.yaml 
+
+3. create worker deployment
+    $ kubectl create -f worker-app-deploy.yaml
+
+4. create voting-app deployment and service
+    $ kubectl create -f voting-app-deploy.yaml
+    $ kubectl create -f voting-app-service.yaml
+
+5. create result-app deployment and service
+    $ kubectl create -f result-app-deploy.yaml
+    $ kubectl create -f result-app-service.yaml
+
+6. check
+    6.1 check deployment and services
+        $ kubectl get deployment,services
+    6.2 check voting app with port 30004 via browser
+    6.3 check result app with port 30005 via browser
+
+PS:
+    Delete all component
+    $ kubectl delete service redis 
+    $ kubectl delete service result-service 
+    $ kubectl delete service voting-service 
+    $ kubectl delete deployments.apps postgres-deploy 
+    $ kubectl delete deployments.apps redis-deploy 
+    $ kubectl delete deployments.apps result-app-deploy 
+    $ kubectl delete deployments.apps voting-app-deploy 
+    $ kubectl delete deployments.apps worker-app-deploy    
